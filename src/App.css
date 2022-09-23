@@ -67,3 +67,8 @@
   border: 1px solid #474747;
   padding: 0px 10px;
 }
+
+.input-area:focus button{
+  display: block;
+
+}
