@@ -1,33 +1,40 @@
-import { useContext } from "react";
-import background from "../../assets/millennium-falcon.webp"
+import { useContext, useState } from "react";
+import noImage from "../../assets/no-image.png"
 import StarshipContext from "../../context/StarshipContext";
-
-
 
 const Cards = () => {
     const { allStarship, filteredData } = useContext(StarshipContext)
+    const [errorList, setErrorList] = useState([]);
 
     const data = filteredData.length > 0 ? filteredData : allStarship.results
+
+    //If starship has not image
+    const onErrorImage = (value) => {
+        setErrorList((prev) => [...prev, value])
+    }
 
     if (Object.keys(allStarship).length > 0)
         return (
             <>
-                <div className="grid grid-cols-4 gap-4 w-[80%] m-auto my-[50px]">
+                <div className="grid grid-cols-4 gap-[2rem] w-[80%] m-auto my-[50px]">
                     {
                         data.map((element, index) => {
+                            const id = element.url.split("/")[5];
+                            const url = errorList.some((e) => e === id) ? noImage : `https://starwars-visualguide.com/assets/img/starships/${element.url.split("/")[5]}.jpg`
                             return (
-                                <div key={index} className="starship-box rounded-[10px] shadow-md">
-                                    <p className="border-b-[1px] inline-block border-[#b2afaf] font-bold">{element.name}</p>
-                                    <img src={background} alt="logo" className="my-4" />
-                                    <p className="p-[2px]"><span className="font-bold pr-[8px]">Model:</span>{element.model}</p>
-                                    <p className="p-[2px]"><span className="font-bold pr-[8px]">Hyperdrive rating:</span>{element.hyperdrive_rating}</p>
-                                    <p className="p-[2px]"><span className="font-bold pr-[8px]">Cargo Capaticy:</span>{element.cargo_capacity}</p>
-
-                                </div>
+                                <a href={`/detail/${id}`} className='h-full' key={index}>
+                                    <div  className="starship-box rounded-[10px] shadow-md h-full" >
+                                        <p className="border-b-[2px] inline-block border-[#b2afaf] font-bold text-[20px]">{element.name}</p>
+                                        <img onError={() => onErrorImage(element.url.split("/")[5])} src={url} alt="logo" className="my-4 text-center min-h-[250px] object-cover" />
+                                        <p className="p-[2px]"><span className="font-bold pr-[8px]">Model:</span>{element.model}</p>
+                                        <p className="p-[2px]"><span className="font-bold pr-[8px]">Hyperdrive rating:</span>{element.hyperdrive_rating}</p>
+                                        <p className="p-[2px]"><span className="font-bold pr-[8px]">Cargo Capaticy:</span>{element.cargo_capacity}</p>
+                                    </div>
+                                </a>
                             )
                         })
                     }
-                </div>
+                </div >
                 <button className="bg-white">Load More</button>
             </>
         )

@@ -12,8 +12,12 @@ const Navbar = () => {
         <div className="flex navbar w-[80%] m-auto align items-center">
             <div>
                 <ul className="flex">
-                    <li className="mr-[30px]">Home</li>
-                    <li>Starship</li>
+                    <li className="mr-[30px]">
+                        <a href="/">Home</a>
+                        </li>
+                    <li>
+                        <a href="/">Starships</a>
+                    </li>
                 </ul>
             </div>
 
