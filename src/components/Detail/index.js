@@ -29,12 +29,12 @@ const Detail = () => {
                 <div className="w-[40%]">
                     <img onError={() => onErrorImage(state.data.url.split("/")[5])} src={url} alt="logo" />
                 </div>
-                <div className="w-[60%]">
-                    <span className="text-[25px] font-bold">{state.data.name}</span>
+                <div className="w-[60%] px-[50px] py-[30px]">
+                    <span className="text-[28px] font-bold border-b-[2px] border-[#b2afaf]">{state.data.name}</span>
                     <p className="p-[2px]"><span className="font-bold pr-[8px]">Model:</span>{state.data.model}</p>
                     <p className="p-[2px]"><span className="font-bold pr-[8px]">Hyperdrive rating:</span>{state.data.hyperdrive_rating}</p>
                     <p className="p-[2px]"><span className="font-bold pr-[8px]">Cargo Capaticy:</span>{state.data.cargo_capacity}</p>
-                    <p className="p-[2px]"><span className="font-bold pr-[8px]">Passenger:</span>{state.data.passenger}</p>
+                    <p className="p-[2px]"><span className="font-bold pr-[8px]">Passenger:</span>{state.data.passengers}</p>
                     <p className="p-[2px]"><span className="font-bold pr-[8px]">Max Atmosfering Speed:</span>{state.data.max_atmosphering_speed}</p>
                     <p className="p-[2px]"><span className="font-bold pr-[8px]">Manufacturer:</span>{state.data.manufacturer}</p>
                     <p className="p-[2px]"><span className="font-bold pr-[8px]">Crew:</span>{state.data.crew}</p>

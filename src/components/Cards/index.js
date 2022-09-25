@@ -1,15 +1,11 @@
-import axios from "axios";
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import noImage from "../../assets/no-image.png"
 import StarshipContext from "../../context/StarshipContext";
 
 const Cards = () => {
-    const { allStarship, filteredData } = useContext(StarshipContext)
+    const { allStarship, filteredData, loadMoreData ,isMoreData} = useContext(StarshipContext)
     const [errorList, setErrorList] = useState([]);
-    const imagePerPage = 10;
-
-    const [next, setNext] = useState(imagePerPage);
 
     const data = filteredData.length > 0 ? filteredData : allStarship.results
 
@@ -40,8 +36,8 @@ const Cards = () => {
                         })
                     }
                 </div >
-                
-                <button className="bg-white">Load More</button>
+
+                <button className="bg-white border-[2px] rounded-[10px] mb-[30px] p-[5px]" onClick={loadMoreData}>{isMoreData ? 'Nothing more to load': 'Load More'}</button>
             </>
         )
     else {

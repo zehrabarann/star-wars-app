@@ -1,7 +1,7 @@
 import { useContext } from "react"
-import close from "../../assets/close.svg"
-import search from "../../assets/search.svg"
 import StarshipContext from "../../context/StarshipContext";
+import { ReactComponent as Search } from "../../assets/search.svg"
+import logo from "../../assets/logo.png"
 
 
 
@@ -10,24 +10,33 @@ const Navbar = () => {
 
     return (
         <div className="flex navbar w-[80%] m-auto align items-center">
-            <div>
-                <ul className="flex">
-                    <li className="mr-[30px]">
-                        <a href="/">Home</a>
+            <div className="flex items-center">
+                <div>
+                    <a href="/">
+                        <img src={logo} alt="logo" />
+                    </a>
+                </div>
+                <div className="ml-8">
+                    <ul className="flex">
+                        <li className="mr-[30px]">
+                            <a href="/">Home</a>
                         </li>
-                    <li>
-                        <a href="/">Starships</a>
-                    </li>
-                </ul>
+                        <li>
+                            <a href="/">Starships</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
 
-            <div className="flex relative input-area">
+
+            <div className="flex relative input-area bg-[#343434] rounded-[10px] opacity-[.7]">
                 <input
                     type="text"
-                    placeholder="Please type the word you want to search for"
+                    placeholder="Search Starships"
                     className="h-[45px]"
                     onChange={onSearch}
                 />
+                <Search className="bg-[#00000047] fill-[#6b6b6b]" />
             </div>
         </div>
     )

@@ -63,12 +63,12 @@
   background-repeat: no-repeat;
   width: 100%;
   background: #00000047;
-  border-radius: 10px;
-  border: 1px solid #474747;
   padding: 0px 10px;
 }
 
-.input-area:focus button{
-  display: block;
+.input-area:focus, .input-area:active, .input-area:hover{
+  opacity: 1;
+  background-color: #343434;
+  transition: 350ms;
 
 }
