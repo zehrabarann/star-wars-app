@@ -45,7 +45,7 @@
   background-color: black;
   color: white;
   display: flex;
-  background-image: url("../../star-wars-app/src/assets/stars.jpeg");
+  background-image: url("../../star-wars-app/src/assets/star3.jpeg");
   justify-content: space-between;
   padding: 12px 0;
 }
@@ -70,5 +70,267 @@
   opacity: 1;
   background-color: #343434;
   transition: 350ms;
+
+}
+
+input:focus-visible {
+  border: none !important;
+}
+
+.explore-button:hover, .go-home-page-button:hover {
+  transform: scale(1.015);
+  background-color: white;
+}
+
+.ring {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  background-color: transparent;
+  border: 3px solid #3c3c3c;
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(0,0,0, 0.5);
+  z-index: -1;
+  margin-left: 130px;
+  margin-top: 60px;
+}
+
+.ring:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: -3px;
+  left: -3px;
+  border: 3px solid transparent;
+  border-top: 3px solid #fff12e;
+  border-right: 3px solid #fff12e;
+  border-radius: 50%;
+  z-index: -1;
+  /* animation-name: returnCircle;
+  animation-timing-function: 10s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear; */
+  animation: returnCircle 10s linear infinite;
+
+}
+
+
+
+.ring .circle {
+  display: block;
+  position: absolute;
+  width: 50%;
+  top: 50%;
+  left: 50%;
+  height: 4px;
+  background-color: transparent;
+  transform-origin: left;
+  animation: return 10s linear infinite;
+}
+
+.ring .circle:before {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: -6px;
+  right: -9px;
+  content: "";
+  background-color: #fff12e;
+  border-radius: 50%;
+  z-index: -1;
+  box-shadow: 0 0 20px #fff12e;
+
+
+}
+
+
+.ring-two {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background-color: transparent;
+  border: 3px solid #3c3c3c;
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(0,0,0, 0.5);
+  z-index: -1;
+  top: 40%;
+  left: 47%;
+
+}
+
+.ring-two:before {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  content: "";
+  border: 3px solid transparent;
+  border-bottom: 3px solid #fff12e;
+  border-left: 3px solid #fff12e;
+  border-radius: 50%;
+  z-index: -1;
+  animation: returnCircle2 10s linear infinite;
+
+}
+
+.ring-two .circle-two {
+  display: block;
+  position: absolute;
+  width: 50%;
+  top: 50%;
+  left: 50%;
+  height: 4px;
+  background-color: transparent;
+  transform-origin: left;
+  animation: return2 10s linear infinite;
+
+}
+
+.ring-two .circle-two:before {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: -6px;
+  right: -9px;
+  content: "";
+  background-color: #fff12e;
+  border-radius: 50%;
+  z-index: -1;
+  box-shadow: 0 0 20px #fff12e;
+
+}
+
+.load-more-button {
+  width: 150px;
+  padding: 0 16px;
+  background-color: #fff;
+  border-color: #d1d1d1;
+  color: #767676;
+  height: 44px;
+  font-size: 18px;
+}
+
+.load-more-button:hover {
+  border-color: #767676;
+  color: black;
+}
+
+.go-home-page-button {
+  border: 1px solid grey;
+  padding: 10px 20px;
+  font-size: 20px;
+  border-radius: 10px;
+  background-color: #dedede;
+  color: black;
+
+}
+
+@media only screen and (max-width: 480px) {
+  .card-box {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    width: 90%;
+    gap: 1.5rem;
+  }
+
+  .navbar {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media only screen and (min-width: 480px) and (max-width: 768px) {
+  .card-box {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 90%;
+    gap: 1.5rem;
+  }
+
+  .starship-box img {
+    object-fit: cover;
+    min-height: auto;
+  }
+
+  .navbar {
+    width: 90%;
+ 
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1200px) {
+  .card-box {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: 90%;
+  }
+
+  .starship-box img {
+    object-fit: cover;
+    min-height: auto;
+  }
+
+  .navbar {
+    width: 90%;
+  }
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1400px) {
+  .card-box {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: 90%;
+  }
+
+  .starship-box img {
+    object-fit: contain;
+    min-height: auto;
+  }
+
+  .navbar {
+    width: 90%;
+  }
+}
+
+@keyframes returnCircle {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+
+}
+
+@keyframes return {
+  0% {
+    transform: rotate(45deg);
+  }
+
+  100% {
+    transform: rotate(405deg);
+  }
+
+}
+
+@keyframes returnCircle2 {
+  0% {
+    transform: rotate(-45deg);
+  }
+
+  100% {
+    transform: rotate(-405deg);
+  }
+
+}
+
+@keyframes return2 {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(-360deg);
+  }
 
 }

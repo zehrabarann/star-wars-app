@@ -1,14 +1,16 @@
 import { useContext, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import StarshipContext from "../../context/StarshipContext";
 import Navbar from "../Navbar";
 import noImage from "../../assets/no-image.png"
+
 
 
 const Detail = () => {
     const { allStarship } = useContext(StarshipContext);
     const [errorList, setErrorList] = useState([]);
 
+    const navigate = useNavigate();
     const { state } = useLocation();
     console.log('state', state)
 
@@ -22,9 +24,11 @@ const Detail = () => {
 
     return (
         <>
-        
-        <Navbar/>
-        
+            <Navbar />
+            <div className="w-[80%] m-auto">
+                <button className="text-white" onClick={() => navigate(-1)}>Go Back</button>
+            </div>
+
             <div className="flex bg-white w-[80%] m-auto rounded-[10px] my-[30px]">
                 <div className="w-[40%]">
                     <img onError={() => onErrorImage(state.data.url.split("/")[5])} src={url} alt="logo" />
@@ -40,7 +44,6 @@ const Detail = () => {
                     <p className="p-[2px]"><span className="font-bold pr-[8px]">Crew:</span>{state.data.crew}</p>
                 </div>
             </div>
-
         </>
     )
 }

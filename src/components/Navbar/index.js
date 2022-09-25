@@ -22,7 +22,7 @@ const Navbar = () => {
                             <a href="/">Home</a>
                         </li>
                         <li>
-                            <a href="/">Starships</a>
+                            <a href="/starships">Starships</a>
                         </li>
                     </ul>
                 </div>
@@ -36,7 +36,7 @@ const Navbar = () => {
                     className="h-[45px]"
                     onChange={onSearch}
                 />
-                <Search className="bg-[#00000047] fill-[#6b6b6b]" />
+                <Search className="bg-[#00000047] fill-[#6b6b6b] h-[45px]"/>
             </div>
         </div>
     )
