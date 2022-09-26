@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import noImage from "../../assets/no-image.png"
 import StarshipContext from "../../context/StarshipContext";
+import Card from "../Card";
 
 const Cards = () => {
     const { allStarship, filteredData, loadMoreData, isMoreData } = useContext(StarshipContext)
@@ -24,15 +25,15 @@ const Cards = () => {
                             const url = errorList.some((e) => e === id) ? noImage : `https://starwars-visualguide.com/assets/img/starships/${element.url.split("/")[5]}.jpg`
                             return (
                                 <Link to={`/detail/${id}`} state={{ data: element }} className='h-full' key={index}>
-                                    <div className="starship-box rounded-[10px] shadow-md h-full" >
-                                        <div className="text-center">
-                                            <p className="border-b-[2px] inline-block border-[#b2afaf] font-bold text-[20px] text-center">{element.name}</p>
-                                        </div>
-                                        <img onError={() => onErrorImage(element.url.split("/")[5])} src={url} alt="logo" className="my-4 text-center min-h-[250px] object-cover" />
-                                        <p className="p-[2px]"><span className="font-bold pr-[8px]">Model:</span>{element.model}</p>
-                                        <p className="p-[2px]"><span className="font-bold pr-[8px]">Hyperdrive rating:</span>{element.hyperdrive_rating}</p>
-                                        <p className="p-[2px]"><span className="font-bold pr-[8px]">Cargo Capaticy:</span>{element.cargo_capacity}</p>
-                                    </div>
+                                    <Card 
+                                        url={element.url}
+                                        noImage={url}
+                                        name={element.name}
+                                        model={element.model}
+                                        hyperdrive_rating= {element.hyperdrive_rating}
+                                        cargo_capacity={element.cargo_capacity}
+                                        onErrorImage={onErrorImage}
+                                    />
                                 </Link>
                             )
                         })
