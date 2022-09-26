@@ -40,7 +40,22 @@ export const StarshipProvider = ({ children }) => {
         }, 1000)
     }
 
-    const values = { allStarship, setAllStarships, onSearch, filteredData, loadMoreData,isMoreData }
+    console.log("Allstarships", allStarship)
+
+
+
+    const addLocalStorage = (id) => {
+        const localIdFromStorage = localStorage.getItem("localId")
+        const recentPost = localIdFromStorage === null ? [] : JSON.parse(localIdFromStorage)
+
+        if(!recentPost.some((e) => e=== id)) {
+            recentPost.push(id)
+            localStorage.setItem("localId" , JSON.stringify(recentPost))
+        }
+    }
+
+    
+    const values = { allStarship, setAllStarships, onSearch, filteredData, loadMoreData,isMoreData, addLocalStorage }
     return (
         <StarshipContext.Provider value={values}>{children}</StarshipContext.Provider>
     )

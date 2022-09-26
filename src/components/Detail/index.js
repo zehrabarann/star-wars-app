@@ -1,20 +1,20 @@
-import { useContext, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import StarshipContext from "../../context/StarshipContext";
 import Navbar from "../Navbar";
-import noImage from "../../assets/no-image.png"
+import noImage from "../../assets/no-image.png";
+import Card from "../Card";
 
 
 
 const Detail = () => {
-    const { allStarship } = useContext(StarshipContext);
+    const { allStarship, addLocalStorage } = useContext(StarshipContext);
     const [errorList, setErrorList] = useState([]);
+    const [recentPost, setRecentPost] = useState([]);
 
     const navigate = useNavigate();
+    const { id } = useParams()
     const { state } = useLocation();
-    console.log('state', state)
-
-    const id = state.data.url.split("/")[5];
 
     const url = errorList.some((e) => e === id) ? noImage : `https://starwars-visualguide.com/assets/img/starships/${state.data.url.split("/")[5]}.jpg`
 
@@ -22,11 +22,37 @@ const Detail = () => {
         setErrorList((prev) => [...prev, value])
     }
 
+    console.log(allStarship, 'allStarship')
+
+    useEffect(() => {
+        if (!!id) {
+            addLocalStorage(id)
+        }
+
+    })
+
+    useEffect(() => {
+        let recentStars = localStorage.getItem("localId")
+        if (!!recentStars && !!allStarship.results) {
+            recentStars = JSON.parse(recentStars)
+            const filteredData = allStarship.results.filter((e) => {
+                const eId = e.url.split("/")[5];
+                return recentStars.includes(eId)
+            })
+            setRecentPost(filteredData)
+        }
+    }, [allStarship])
+
+    console.log('recent', recentPost)
+
+
+
     return (
         <>
             <Navbar />
             <div className="w-[80%] m-auto">
-                <button className="text-white" onClick={() => navigate(-1)}>Go Back</button>
+                {/* <img src={returnImage} alt="returnIcon"/> */}
+                <button className="text-white underline text-[18px]" onClick={() => navigate(-1)}>Go Back</button>
             </div>
 
             <div className="flex bg-white w-[80%] m-auto rounded-[10px] my-[30px]">
@@ -42,6 +68,27 @@ const Detail = () => {
                     <p className="p-[2px]"><span className="font-bold pr-[8px]">Max Atmosfering Speed:</span>{state.data.max_atmosphering_speed}</p>
                     <p className="p-[2px]"><span className="font-bold pr-[8px]">Manufacturer:</span>{state.data.manufacturer}</p>
                     <p className="p-[2px]"><span className="font-bold pr-[8px]">Crew:</span>{state.data.crew}</p>
+                </div>
+            </div>
+
+            <div className=" w-[80%] m-auto my-[50px]">
+                <h2 className="text-[30px] text-white">Last View</h2>
+                <div className="last-view grid grid-cols-4 gap-[2rem]">
+                    {recentPost.map((element, index) => {
+                        return (
+                            <Link to={`/detail/${id}`}>
+                                <Card key={index}
+                                    url={element.url}
+                                    noImage={url}
+                                    name={element.name}
+                                    model={element.model}
+                                    hyperdrive_rating={element.hyperdrive_rating}
+                                    cargo_capacity={element.cargo_capacity}
+                                    onErrorImage={onErrorImage}
+                                />
+                            </Link>
+                        )
+                    })}
                 </div>
             </div>
         </>

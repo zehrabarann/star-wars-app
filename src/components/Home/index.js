@@ -19,9 +19,9 @@ const Home = () => {
 
                    </a>
                 </div>
-                <div className="w-[60%]">
+                <div className="w-[60%] circle-ring">
                     <div className="ring">
-                        <img src={error} alt="err" className="h-[250px]" />
+                        <img src="https://starwars-visualguide.com/assets/img/starships/13.jpg" alt="err" className="h-[250px]" />
                         <span className="circle"></span>
                     </div>
                     <div className="ring-two">
