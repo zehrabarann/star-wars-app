@@ -6,6 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-image: url("../../star-wars-app/src/assets/star3.jpeg");
+  height: 100vh;
 
 }
 

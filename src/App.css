@@ -62,8 +62,9 @@
 .navbar input {
   background-repeat: no-repeat;
   width: 100%;
-  background: #00000047;
-  padding: 0px 10px;
+  /* background: #00000047; */
+   background: #343434;
+
 }
 
 .input-area:focus, .input-area:active, .input-area:hover{
@@ -93,6 +94,7 @@ input:focus-visible {
   z-index: -1;
   /* margin-left: 130px;
   margin-top: 60px; */
+  margin: auto;
 }
 
 .ring:before {
@@ -127,6 +129,7 @@ input:focus-visible {
   background-color: transparent;
   transform-origin: left;
   animation: return 10s linear infinite;
+  z-index: -1;
 }
 
 .ring .circle:before {
@@ -154,8 +157,8 @@ input:focus-visible {
   border-radius: 50%;
   box-shadow: 0 0 20px rgba(0,0,0, 0.5);
   z-index: -1;
-  top: 40%;
-  left: 47%;
+  top: 30%;
+  left: 55%;
 
 }
 
@@ -232,21 +235,83 @@ input:focus-visible {
 }
 
 .circle-ring {
-  padding-left: 130px;
+  padding-left: 135px;
   padding-top: 60px;
+  display: flex;
+  justify-content: center;
 }
+
+.last-view-boxs {
+  display: flex;
+  overflow-x: scroll;
+}
+
+.last-view-boxs a {
+  width: 350px !important;
+  margin-right: 30px;
+}
+
 
 @media only screen and (max-width: 480px) {
   .card-box {
     grid-template-columns: repeat(1, minmax(0, 1fr));
     width: 90%;
     gap: 1.5rem;
+    margin-top: 0;
   }
 
   .navbar {
     width: 90%;
     display: flex;
     flex-direction: column;
+  }
+
+  .navbar-b {
+    width: 100%;
+  }
+
+  .detail-box {
+    flex-direction: column;
+    width: 90%;
+  }
+
+  .detail-image-area{
+    width: 100%;
+  }
+
+  .detail-image-area img {
+    border: 1px solid #fff;
+    border-radius: 10px 10px 0 0;
+  }
+
+  .detail-inform-area  {
+    padding: 10px;
+    width: 100%;
+
+  }
+
+  .detail-inf-name {
+    width: 100%;
+    float: left;
+    font-size: 22px;
+  }
+
+  .last-view-boxs  {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+
+  }
+
+  .last-view  {
+    width: 90%;
+  }
+
+  .input-area {
+    width: 100%;
+  }
+
+  .breadcrumb {
+    margin: 20px;
+    margin-left: 0;
   }
 }
 
@@ -266,7 +331,44 @@ input:focus-visible {
     width: 90%;
  
   }
+
+  .detail-box {
+    flex-direction: column;
+    width: 90%;
+  }
+
+  .detail-image-area{
+    width: 100%;
+  }
+
+  .detail-image-area img {
+    border: 1px solid #fff;
+    border-radius: 10px 10px 0 0;
+    width: 100%;
+  }
+
+  .detail-inform-area  {
+    padding: 10px;
+    width: 100%;
+
+  }
+
+  .detail-inf-name {
+    width: 100%;
+    float: left;
+    font-size: 22px;
+  }
+
+  .last-view-boxs  {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  }
+
+  .last-view  {
+    width: 90%;
+  }
 }
+
 
 @media only screen and (min-width: 768px) and (max-width: 1200px) {
   .card-box {
@@ -281,6 +383,11 @@ input:focus-visible {
 
   .navbar {
     width: 90%;
+  }
+
+  .last-view-boxs  {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
   }
 }
 

@@ -23,6 +23,7 @@ const Cards = () => {
                         data.map((element, index) => {
                             const id = element.url.split("/")[5];
                             const url = errorList.some((e) => e === id) ? noImage : `https://starwars-visualguide.com/assets/img/starships/${element.url.split("/")[5]}.jpg`
+                            console.log("element", element)
                             return (
                                 <Link to={`/detail/${id}`} state={{ data: element }} className='h-full' key={index}>
                                     <Card 
@@ -41,10 +42,7 @@ const Cards = () => {
                 </div >
                 <div className="flex justify-center">
                     <button className="load-more-button bg-white border-[2px] rounded-[10px] mb-[30px] p-[5px] text-center" onClick={loadMoreData}>{isMoreData ? 'Nothing more to load' : 'Load More'}</button>
-
-
                 </div>
-
             </>
         )
     else {
