@@ -45,10 +45,6 @@ const Detail = () => {
     }
   }, [allStarship]);
 
-  console.log("recent", recentPost);
-
-  const lastIndex = recentPost.length - 1;
-
   return (
     <>
       <Navbar />
@@ -105,15 +101,15 @@ const Detail = () => {
         </div>
       </div>
 
-      <div className="last-view w-[80%] m-auto my-[50px]">
+      <div className="last-view w-[80%] m-auto my-[80px] py-[80px]">
         <h2 className="text-[30px] text-white mb-[20px]">
           Last View Starships
         </h2>
         <div className="last-view-boxs">
-          {recentPost.map((element, index) => {
+          {recentPost.reverse().map((element, index) => {
             return (
               <Link
-                to={`/detail/${id}`}
+                to={`/detail/${element.url.split("/")[5]}`}
                 state={{ data: element }}
                 className="h-full"
                 key={index}
