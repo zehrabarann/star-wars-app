@@ -27,7 +27,7 @@ const Cards = () => {
               : `https://starwars-visualguide.com/assets/img/starships/${
                   element.url.split("/")[5]
                 }.jpg`;
-            console.log("element", element);
+            // console.log("element", element);
             return (
               <Link
                 to={`/detail/${id}`}

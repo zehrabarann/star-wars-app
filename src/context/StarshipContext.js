@@ -40,7 +40,7 @@ export const StarshipProvider = ({ children }) => {
     }, 1000);
   };
 
-  console.log("Allstarships", allStarship);
+  // console.log("Allstarships", allStarship);
 
   const addLocalStorage = (id) => {
     const localIdFromStorage = localStorage.getItem("localId");

@@ -2,13 +2,22 @@ import { Link } from "react-router-dom";
 import noImage from "../../assets/no-image.png";
 import noImage2 from "../../assets/no-image.png";
 
-const Card = ({ id, url, onErrorImage, name, model, hyperdrive_rating, cargo_capacity, noImage,}) => {
-  console.log("id", `/detail/${url.split("/")[5]}`);
+const Card = ({
+  id,
+  url,
+  onErrorImage,
+  name,
+  model,
+  hyperdrive_rating,
+  cargo_capacity,
+  noImage,
+}) => {
+  // console.log("id", `/detail/${url.split("/")[5]}`);
   return (
     <>
       <div className="starship-box rounded-[10px] shadow-md h-full">
         <div className="text-center">
-          <p className="border-b-[2px] inline-block border-[#b2afaf] font-bold text-[20px] text-center">
+          <p className="starships-name border-b-[2px] inline-block border-[#b2afaf] font-bold text-[20px] text-center">
             {name}
           </p>
         </div>

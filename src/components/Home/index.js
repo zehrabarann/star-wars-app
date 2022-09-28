@@ -2,8 +2,10 @@ import Cards from "../Cards";
 import Navbar from "../Navbar";
 import error from "../../assets/jonathan-cooper.webp";
 import circleImage from "../../assets/circle-image.png";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate();
   return (
     <>
       <Navbar />
@@ -17,11 +19,13 @@ const Home = () => {
             Starwars ships, in which you can find a lot of information from many
             passenger capacities to models, are ready to explore.
           </p>
-          <a href="/starships">
-            <button className="bg-[#dedede] p-[10px] rounded-[10px] font-semibold explore-button text-[20px]">
-              Explore Starships
-            </button>
-          </a>
+
+          <button
+            onClick={() => navigate("/starships")}
+            className="bg-[#dedede] p-[10px] rounded-[10px] font-semibold explore-button text-[20px]"
+          >
+            Explore Starships
+          </button>
         </div>
         <div className="w-[60%] circle-ring">
           <div className="ring">
@@ -39,6 +43,12 @@ const Home = () => {
       </div>
     </>
   );
+};
+
+export const LocationDisplay = () => {
+  const location = useLocation();
+
+  return <div data-testid="location-display">{location.pathname}</div>;
 };
 
 export default Home;

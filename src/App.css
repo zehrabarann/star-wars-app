@@ -54,7 +54,10 @@
 .starship-box {
   background-color: white;
   padding: 25px;
+
 }
+
+
 
 .starship-box:hover {
   transform: scale(1.015);
@@ -65,6 +68,7 @@
   width: 100%;
   /* background: #00000047; */
   background: #343434;
+  outline: transparent;
 
 }
 
@@ -75,6 +79,10 @@
   background-color: #343434;
   transition: 350ms;
 
+}
+
+.input-area:focus-visible {
+  outline: 2px solid grey;
 }
 
 input:focus-visible {
@@ -210,7 +218,7 @@ input:focus-visible {
 }
 
 .load-more-button {
-  width: 150px;
+  width: 220px;
   padding: 0 16px;
   background-color: #fff;
   border-color: #d1d1d1;
@@ -250,7 +258,11 @@ input:focus-visible {
   overflow-x: auto;
   white-space: nowrap;
   overflow-y: hidden;
+  padding: 10px;
+}
 
+.last-view-boxs .starship-box {
+  width: 300px;
 }
 
 .last-view-boxs a {
@@ -264,6 +276,11 @@ input:focus-visible {
   border: 1px solid #d5d5d5;
   top: 10px;
 } */
+
+.starship-box img {
+  margin: 20px auto;
+
+}
 
 
 @media only screen and (max-width: 480px) {
