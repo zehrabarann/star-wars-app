@@ -282,6 +282,39 @@ input:focus-visible {
 
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 3px;
+  height: 7px;
+  margin: 20px;
+
+
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  margin-top: 50px !important;
+  padding-top: 20px;
+  top: 300px;
+  margin-top: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+  margin-top: 3px;
+  background-clip: padding-box;
+  padding: 15px;
+
+
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 
 @media only screen and (max-width: 480px) {
   .card-box {
@@ -290,6 +323,44 @@ input:focus-visible {
     gap: 1.5rem;
     margin-top: 0;
   }
+
+  .ring-two {
+    width: 290px;
+    height: 290px;
+    top: auto;
+    left: auto;
+  }
+
+  .ring {
+    width: 210px;
+    height: 210px;
+
+  }
+
+  .circle-ring {
+    width: 90%;
+    margin: auto;
+    padding-left: 0;
+    padding-top: 0;
+  }
+
+  .text-area {
+    width: 90%;
+    margin: auto;
+
+  }
+
+  .image-text-box {
+    flex-direction: column;
+    width: 90%;
+    margin-top: 30px;
+
+  }
+
+
+
+
+
 
   .navbar {
     width: 90%;
@@ -353,6 +424,39 @@ input:focus-visible {
     gap: 1.5rem;
   }
 
+  .ring-two {
+    width: 320px;
+    height: 320px;
+    top: auto;
+    left: auto;
+  }
+
+  .ring {
+    width: 240px;
+    height: 240px;
+
+  }
+
+  .circle-ring {
+    width: 90%;
+    margin: auto;
+    padding-left: 0;
+    padding-top: 0;
+    margin-top: 30px;
+  }
+
+  .text-area {
+    width: 90%;
+    margin: auto;
+
+  }
+
+  .image-text-box {
+    flex-direction: column;
+    margin-top: 30px;
+    width: 90%;
+  }
+
   .starship-box img {
     object-fit: cover;
     min-height: auto;
@@ -400,6 +504,23 @@ input:focus-visible {
   }
 }
 
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .ring-two {
+    width: 380px;
+    height: 380px;
+  }
+
+  .ring {
+    width: 280px;
+    height: 280px;
+  }
+
+  .ring img {
+    height: auto;
+    margin-left: 30px;
+    margin-top: 40px;
+  }
+}
 
 @media only screen and (min-width: 768px) and (max-width: 1200px) {
   .card-box {
@@ -432,8 +553,8 @@ input:focus-visible {
   }
 
   .ring {
-    width: 330px;
-    height: 330px;
+    /* width: 330px;
+    height: 330px; */
   }
 
   .ring img {
@@ -442,10 +563,10 @@ input:focus-visible {
   }
 
   .ring-two {
-    width: 420px;
-    height: 420px;
+    /* width: 420px;
+    height: 420px; */
     top: 29%;
-    left: 41%;
+    left: 44%;
   }
 }
 

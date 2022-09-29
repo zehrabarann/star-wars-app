@@ -1,5 +1,5 @@
 import axios from "axios";
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useRef, useState } from "react";
 
 const StarshipContext = createContext();
 
@@ -7,6 +7,7 @@ export const StarshipProvider = ({ children }) => {
   const [allStarship, setAllStarships] = useState({});
   const [filteredData, setFilteredData] = useState([]);
   const [isMoreData, setIsMoreData] = useState(false);
+  const prevData = useRef();
 
   useEffect(() => {
     axios("https://swapi.dev/api/starships/").then((response) =>
@@ -21,22 +22,23 @@ export const StarshipProvider = ({ children }) => {
       const cancat = allStarshipTemp.results.concat(res.results);
       allStarshipTemp.next = res.next;
       allStarshipTemp.results = cancat;
-      console.log("allStarShip", cancat);
       setAllStarships(allStarshipTemp);
     } else {
       setIsMoreData(true);
     }
   };
 
-  const onSearch = (e) => {
+  const onSearch = (value) => {
     setTimeout(() => {
-      let value = e.target.value;
-      const filteredStarShip = allStarship.results.filter(
-        (e) =>
-          e.name.toLowerCase().includes(value) ||
-          e.model.toLowerCase().includes(value)
-      );
-      setFilteredData(filteredStarShip);
+      if (prevData.current !== filteredData) {
+        const filteredStarShip = allStarship.results.filter(
+          (e) =>
+            e.name.toLowerCase().includes(value) ||
+            e.model.toLowerCase().includes(value)
+        );
+        prevData.current = filteredStarShip;
+        setFilteredData(filteredStarShip);
+      }
     }, 1000);
   };
 
@@ -51,8 +53,6 @@ export const StarshipProvider = ({ children }) => {
       recentPost.push(id);
       localStorage.setItem("localId", JSON.stringify(recentPost));
     }
-
-    console.log("last child", recentPost.slice(-1)[0]); //last visited starship id
   };
 
   const values = {

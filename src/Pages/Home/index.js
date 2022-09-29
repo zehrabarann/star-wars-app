@@ -1,6 +1,4 @@
-import Cards from "../Cards";
-import Navbar from "../Navbar";
-import error from "../../assets/jonathan-cooper.webp";
+import Navbar from "../../components/Navbar";
 import circleImage from "../../assets/circle-image.png";
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -13,7 +11,7 @@ const Home = () => {
       {/* <Cards/> */}
 
       <div className="image-text-box flex items-center w-[80%] m-auto mt-[130px]">
-        <div className="w-[40%]">
+        <div className="w-[40%] text-area">
           <h2 className="text-[50px] text-white">Star Wars Starships</h2>
           <p className="text-[30px] text-white mb-[30px]">
             Starwars ships, in which you can find a lot of information from many

@@ -1,7 +1,3 @@
-import { Link } from "react-router-dom";
-import noImage from "../../assets/no-image.png";
-import noImage2 from "../../assets/no-image.png";
-
 const Card = ({
   id,
   url,
@@ -10,25 +6,21 @@ const Card = ({
   model,
   hyperdrive_rating,
   cargo_capacity,
-  noImage,
 }) => {
-  // console.log("id", `/detail/${url.split("/")[5]}`);
   return (
     <>
       <div className="starship-box rounded-[10px] shadow-md h-full">
         <div className="text-center">
-          <p className="starships-name border-b-[2px] inline-block border-[#b2afaf] font-bold text-[20px] text-center">
+          <h2 className="starships-name border-b-[2px] inline-block border-[#b2afaf] font-bold text-[20px] text-center">
             {name}
-          </p>
+          </h2>
         </div>
         <img
-          onError={() => onErrorImage(url.split("/")[5])}
-          src={noImage}
+          onError={() => onErrorImage(id)}
+          src={url}
           alt="logo"
           className="my-4 text-center min-h-[250px] object-cover"
         />
-        {/* <Image  src={noImage} fallbackSrc={noImage2} alt="logo" className="my-4 text-center min-h-[250px] object-cover" /> */}
-
         <p className="p-[2px]">
           <span className="font-bold pr-[8px]">Model:</span>
           {model}
