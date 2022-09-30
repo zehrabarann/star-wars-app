@@ -11,7 +11,10 @@ const Card = ({
     <>
       <div className="starship-box rounded-[10px] shadow-md h-full">
         <div className="text-center">
-          <h2 className="starships-name border-b-[2px] inline-block border-[#b2afaf] font-bold text-[20px] text-center">
+          <h2
+            data-testid="card-name"
+            className="starships-name border-b-[2px] inline-block border-[#b2afaf] font-bold text-[20px] text-center"
+          >
             {name}
           </h2>
         </div>

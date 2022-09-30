@@ -22,7 +22,9 @@ const Navbar = () => {
               <a href="/">Home</a>
             </li>
             <li>
-              <a href="/starships">Starships</a>
+              <a data-testid="card-name" href="/starships">
+                Starships
+              </a>
             </li>
           </ul>
         </div>
@@ -30,6 +32,7 @@ const Navbar = () => {
 
       <div className="flex relative input-area bg-[#343434] rounded-[10px] opacity-[.7] px-[10px]">
         <input
+          data-testid="search-input"
           type="text"
           placeholder="Search Starships"
           className="h-[45px]"

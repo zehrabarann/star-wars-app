@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
-import Bootstrap from "../Bootstrap";
+import App from "../../App";
 
 describe("Error Page Test", () => {
   test("should status equal 404 when endpoint is undefined", () => {
@@ -8,7 +8,7 @@ describe("Error Page Test", () => {
 
     render(
       <MemoryRouter initialEntries={[route]}>
-        <Bootstrap />
+        <App />
       </MemoryRouter>
     );
     const oopsText = screen.getByRole("heading", {
