@@ -30,15 +30,14 @@ export const StarshipProvider = ({ children }) => {
 
   const onSearch = (value) => {
     setTimeout(() => {
-      if (prevData.current !== filteredData) {
-        const filteredStarShip = allStarship?.results?.filter(
-          (e) =>
-            e.name.toLowerCase().includes(value) ||
-            e.model.toLowerCase().includes(value)
-        );
-        prevData.current = filteredStarShip;
-        setFilteredData(filteredStarShip);
-      }
+      const filteredStarShip = allStarship?.results?.filter(
+        (e) =>
+          e.name.toLowerCase().includes(value) ||
+          e.model.toLowerCase().includes(value)
+      );
+      prevData.current = filteredStarShip;
+      setFilteredData(filteredStarShip);
+
     }, 1000);
   };
 
@@ -50,7 +49,7 @@ export const StarshipProvider = ({ children }) => {
       localIdFromStorage === null ? [] : JSON.parse(localIdFromStorage);
 
     if (!recentPost.some((e) => e === id)) {
-      recentPost.push(id);
+      recentPost.unshift(id);
       localStorage.setItem("localId", JSON.stringify(recentPost));
     }
   };

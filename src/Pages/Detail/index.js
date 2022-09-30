@@ -3,7 +3,6 @@ import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import StarshipContext from "../../context/StarshipContext";
 import Navbar from "../../components/Navbar";
 import noImage from "../../assets/no-image.png";
-import back from "../../assets/back.png";
 import Card from "../../components/Card";
 
 const Detail = () => {
@@ -24,6 +23,7 @@ const Detail = () => {
     });
     return { data: foundedStarships || {} };
   }, [allStarship, location, id]);
+  console.log('element', recentPost)
 
   const url = errorList.some((e) => e === id)
     ? noImage
@@ -46,11 +46,15 @@ const Detail = () => {
     let recentStars = localStorage.getItem("localId");
     if (!!recentStars && !!allStarship.results) {
       recentStars = JSON.parse(recentStars);
-      const filteredData = allStarship.results.filter((e) => {
-        const eId = e.url.split("/")[5];
-        return recentStars.includes(eId);
+      const arr = []
+      recentStars.forEach((e) => {
+        const findIndex = recentStars.findIndex((q) => q === e)
+        arr[findIndex] = allStarship.results.find((q) => {
+          const qId = q.url.split("/")[5];
+          return qId === e
+        })
       });
-      setRecentPost(filteredData);
+      setRecentPost(arr)
     }
   }, [allStarship]);
 
@@ -122,7 +126,7 @@ const Detail = () => {
           Last View Starships
         </h2>
         <div className="last-view-boxs flex overflow-x-auto whitespace-nowrap	overflow-y-hidden py-[15px] ">
-          {recentPost.reverse().map((element, index) => {
+          {recentPost.map((element, index) => {
             const idRecent = element.url.split("/")[5];
             const url = errorList.some((e) => e === idRecent)
               ? noImage
