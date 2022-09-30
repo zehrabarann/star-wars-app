@@ -31,7 +31,7 @@ export const StarshipProvider = ({ children }) => {
   const onSearch = (value) => {
     setTimeout(() => {
       if (prevData.current !== filteredData) {
-        const filteredStarShip = allStarship.results.filter(
+        const filteredStarShip = allStarship?.results?.filter(
           (e) =>
             e.name.toLowerCase().includes(value) ||
             e.model.toLowerCase().includes(value)

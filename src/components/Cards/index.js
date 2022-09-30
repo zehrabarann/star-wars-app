@@ -5,7 +5,7 @@ import loader from "../../assets/loader.gif";
 import StarshipContext from "../../context/StarshipContext";
 import Card from "../Card";
 
-const Cards = () => {
+const Cards = (props) => {
   const { allStarship, filteredData } = useContext(StarshipContext);
   const [errorList, setErrorList] = useState([]);
   const [data, setData] = useState([]);
@@ -25,14 +25,16 @@ const Cards = () => {
   if (data.length > 0)
     return (
       <>
-        <div className=" card-box grid grid-cols-4 gap-[2rem] w-[80%] m-auto my-[50px]">
+        <div
+          data-testid={props.testid}
+          className="card-box grid grid-cols-1 gap-[1.5rem] w-[90%] m-auto my-[50px] sm:grid-cols-2 md:w-[80%] lg:grid-cols-3 gap-[2rem] xl:grid-cols-4"
+        >
           {data.map((element, index) => {
             const id = element.url.split("/")[5];
             const url = errorList.some((e) => e === id)
               ? noImage
-              : `https://starwars-visualguide.com/assets/img/starships/${
-                  element.url.split("/")[5]
-                }.jpg`;
+              : `https://starwars-visualguide.com/assets/img/starships/${element.url.split("/")[5]
+              }.jpg`;
             return (
               <Link
                 to={`/detail/${id}`}
@@ -57,9 +59,11 @@ const Cards = () => {
     );
   else {
     return (
-      <div className="text-white flex justify-center items-center h-full">
+      <div
+        data-testid={props.testid}
+        className="text-white flex justify-center items-center h-full"
+      >
         <img src={loader} alt="loader" className="h-[60px] mb-[50px]" />
-        {/* Loading */}
       </div>
     );
   }

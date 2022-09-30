@@ -8,10 +8,8 @@ const Home = () => {
     <>
       <Navbar />
 
-      {/* <Cards/> */}
-
-      <div className="image-text-box flex items-center w-[80%] m-auto mt-[130px]">
-        <div className="w-[40%] text-area">
+      <div className="image-text-box flex flex-col items-center w-[90%] m-auto mt-[30px] sm:flex-row w-[80%] mt-[130px] ">
+        <div className="w-[40%] text-area sm: w-[90]">
           <h2 className="text-[50px] text-white">Star Wars Starships</h2>
           <p className="text-[30px] text-white mb-[30px]">
             Starwars ships, in which you can find a lot of information from many

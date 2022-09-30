@@ -9,7 +9,7 @@ const Error404 = () => {
           route isn't looking good for either of us
         </p>
         <a href="/">
-          <button className="go-home-page-button mt-[30px]">
+          <button className="go-home-page-button text-[#333] bg-[#dedede] rounded-[10px] text-[20px] py-[10px] px-[20px] border-grey mt-[30px] hover:bg-[#fff] scale-[1.015] ">
             Go to Homepage
           </button>
         </a>

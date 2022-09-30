@@ -1,15 +1,8 @@
-const Card = ({
-  id,
-  url,
-  onErrorImage,
-  name,
-  model,
-  hyperdrive_rating,
-  cargo_capacity,
-}) => {
+const Card = ({ id, url, onErrorImage, name, model, hyperdrive_rating, cargo_capacity }) => {
+
   return (
     <>
-      <div className="starship-box rounded-[10px] shadow-md h-full">
+      <div data-testid="starships-box" className="starship-box bg-white p-[25px] rounded-[10px] shadow-md h-full hover:scale-[1.015]">
         <div className="text-center">
           <h2
             data-testid="card-name"
@@ -22,7 +15,7 @@ const Card = ({
           onError={() => onErrorImage(id)}
           src={url}
           alt="logo"
-          className="my-4 text-center min-h-[250px] object-cover"
+          className="my-4 text-center min-h-auto object-cover mt-[20px] md:min-h-[250px]"
         />
         <p className="p-[2px]">
           <span className="font-bold pr-[8px]">Model:</span>

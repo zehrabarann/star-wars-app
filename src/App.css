@@ -6,42 +6,6 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 .navbar {
   background-color: black;
   color: white;
@@ -51,25 +15,11 @@
   padding: 12px 0;
 }
 
-.starship-box {
-  background-color: white;
-  padding: 25px;
-
-}
-
-
-
-.starship-box:hover {
-  transform: scale(1.015);
-}
-
 .navbar input {
   background-repeat: no-repeat;
   width: 100%;
-  /* background: #00000047; */
   background: #343434;
   outline: transparent;
-
 }
 
 .input-area:focus,
@@ -89,8 +39,7 @@ input:focus-visible {
   border: none !important;
 }
 
-.explore-button:hover,
-.go-home-page-button:hover {
+.explore-button:hover {
   transform: scale(1.015);
   background-color: white;
 }
@@ -104,8 +53,6 @@ input:focus-visible {
   border-radius: 50%;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   z-index: -1;
-  /* margin-left: 130px;
-  margin-top: 60px; */
   margin: auto;
 }
 
@@ -121,15 +68,8 @@ input:focus-visible {
   border-right: 3px solid #fff12e;
   border-radius: 50%;
   z-index: -1;
-  /* animation-name: returnCircle;
-  animation-timing-function: 10s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear; */
   animation: returnCircle 10s linear infinite;
-
 }
-
-
 
 .ring .circle {
   display: block;
@@ -155,10 +95,7 @@ input:focus-visible {
   border-radius: 50%;
   z-index: -1;
   box-shadow: 0 0 20px #fff12e;
-
-
 }
-
 
 .ring-two {
   position: absolute;
@@ -171,7 +108,6 @@ input:focus-visible {
   z-index: -1;
   top: 30%;
   left: 55%;
-
 }
 
 .ring-two:before {
@@ -187,7 +123,6 @@ input:focus-visible {
   border-radius: 50%;
   z-index: -1;
   animation: returnCircle2 10s linear infinite;
-
 }
 
 .ring-two .circle-two {
@@ -200,7 +135,6 @@ input:focus-visible {
   background-color: transparent;
   transform-origin: left;
   animation: return2 10s linear infinite;
-
 }
 
 .ring-two .circle-two:before {
@@ -214,32 +148,6 @@ input:focus-visible {
   border-radius: 50%;
   z-index: -1;
   box-shadow: 0 0 20px #fff12e;
-
-}
-
-.load-more-button {
-  width: 220px;
-  padding: 0 16px;
-  background-color: #fff;
-  border-color: #d1d1d1;
-  color: #767676;
-  height: 44px;
-  font-size: 18px;
-}
-
-.load-more-button:hover {
-  border-color: #767676;
-  color: black;
-}
-
-.go-home-page-button {
-  border: 1px solid grey;
-  padding: 10px 20px;
-  font-size: 20px;
-  border-radius: 10px;
-  background-color: #dedede;
-  color: black;
-
 }
 
 .breadcrumb li+li:before {
@@ -253,14 +161,6 @@ input:focus-visible {
   justify-content: center;
 }
 
-.last-view-boxs {
-  display: flex;
-  overflow-x: auto;
-  white-space: nowrap;
-  overflow-y: hidden;
-  padding: 10px;
-}
-
 .last-view-boxs .starship-box {
   width: 300px;
 }
@@ -270,25 +170,11 @@ input:focus-visible {
   margin-right: 40px;
 }
 
-/* ::-webkit-scrollbar {
-  height: 4px;
-  width: 4px;
-  border: 1px solid #d5d5d5;
-  top: 10px;
-} */
-
-.starship-box img {
-  margin: 20px auto;
-
-}
-
 /* width */
 ::-webkit-scrollbar {
   width: 3px;
   height: 7px;
   margin: 20px;
-
-
 }
 
 /* Track */
@@ -317,12 +203,6 @@ input:focus-visible {
 
 
 @media only screen and (max-width: 480px) {
-  .card-box {
-    grid-template-columns: repeat(1, minmax(0, 1fr));
-    width: 90%;
-    gap: 1.5rem;
-    margin-top: 0;
-  }
 
   .ring-two {
     width: 290px;
@@ -344,23 +224,9 @@ input:focus-visible {
     padding-top: 0;
   }
 
-  .text-area {
-    width: 90%;
-    margin: auto;
-
+  .last-view-boxs .starship-box {
+    width: 285px;
   }
-
-  .image-text-box {
-    flex-direction: column;
-    width: 90%;
-    margin-top: 30px;
-
-  }
-
-
-
-
-
 
   .navbar {
     width: 90%;
@@ -372,58 +238,12 @@ input:focus-visible {
     width: 100%;
   }
 
-  .detail-box {
-    flex-direction: column;
-    width: 90%;
-  }
-
-  .detail-image-area {
-    width: 100%;
-  }
-
-  .detail-image-area img {
-    border: 1px solid #fff;
-    border-radius: 10px 10px 0 0;
-  }
-
-  .detail-inform-area {
-    padding: 10px;
-    width: 100%;
-
-  }
-
-  .detail-inf-name {
-    width: 100%;
-    float: left;
-    font-size: 22px;
-  }
-
-  .last-view-boxs {
-    grid-template-columns: repeat(1, minmax(0, 1fr));
-
-  }
-
-  .last-view {
-    width: 90%;
-  }
-
   .input-area {
     width: 100%;
-  }
-
-  .breadcrumb {
-    margin: 20px;
-    margin-left: 10px;
   }
 }
 
 @media only screen and (min-width: 480px) and (max-width: 768px) {
-  .card-box {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    width: 90%;
-    gap: 1.5rem;
-  }
-
   .ring-two {
     width: 320px;
     height: 320px;
@@ -434,7 +254,6 @@ input:focus-visible {
   .ring {
     width: 240px;
     height: 240px;
-
   }
 
   .circle-ring {
@@ -445,62 +264,18 @@ input:focus-visible {
     margin-top: 30px;
   }
 
-  .text-area {
-    width: 90%;
-    margin: auto;
-
-  }
-
   .image-text-box {
     flex-direction: column;
     margin-top: 30px;
     width: 90%;
   }
 
-  .starship-box img {
-    object-fit: cover;
-    min-height: auto;
-  }
-
   .navbar {
     width: 90%;
-
   }
 
-  .detail-box {
-    flex-direction: column;
-    width: 90%;
-  }
-
-  .detail-image-area {
-    width: 100%;
-  }
-
-  .detail-image-area img {
-    border: 1px solid #fff;
-    border-radius: 10px 10px 0 0;
-    width: 100%;
-  }
-
-  .detail-inform-area {
-    padding: 10px;
-    width: 100%;
-
-  }
-
-  .detail-inf-name {
-    width: 100%;
-    float: left;
-    font-size: 22px;
-  }
-
-  .last-view-boxs {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-
-  }
-
-  .last-view {
-    width: 90%;
+  .last-view-boxs .starship-box img {
+    height: 200px;
   }
 }
 
@@ -520,26 +295,15 @@ input:focus-visible {
     margin-left: 30px;
     margin-top: 40px;
   }
+
+  .last-view-boxs .starship-box img {
+    height: 200px;
+  }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1200px) {
-  .card-box {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    width: 90%;
-  }
-
-  .starship-box img {
-    object-fit: cover;
-    min-height: auto;
-  }
-
   .navbar {
     width: 90%;
-  }
-
-  .last-view-boxs {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-
   }
 
   .image-text-box {
@@ -552,35 +316,18 @@ input:focus-visible {
     padding-top: 0;
   }
 
-  .ring {
-    /* width: 330px;
-    height: 330px; */
-  }
-
   .ring img {
     margin-left: 30px;
     margin-top: 70px;
   }
 
   .ring-two {
-    /* width: 420px;
-    height: 420px; */
     top: 29%;
     left: 44%;
   }
 }
 
 @media only screen and (min-width: 1200px) and (max-width: 1400px) {
-  .card-box {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    width: 90%;
-  }
-
-  .starship-box img {
-    object-fit: contain;
-    min-height: auto;
-  }
-
   .navbar {
     width: 90%;
   }
@@ -594,7 +341,6 @@ input:focus-visible {
   100% {
     transform: rotate(360deg);
   }
-
 }
 
 @keyframes return {
@@ -605,7 +351,6 @@ input:focus-visible {
   100% {
     transform: rotate(405deg);
   }
-
 }
 
 @keyframes returnCircle2 {
@@ -616,7 +361,6 @@ input:focus-visible {
   100% {
     transform: rotate(-405deg);
   }
-
 }
 
 @keyframes return2 {
@@ -627,5 +371,4 @@ input:focus-visible {
   100% {
     transform: rotate(-360deg);
   }
-
 }

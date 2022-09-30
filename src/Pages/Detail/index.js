@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import StarshipContext from "../../context/StarshipContext";
 import Navbar from "../../components/Navbar";
 import noImage from "../../assets/no-image.png";
+import back from "../../assets/back.png";
 import Card from "../../components/Card";
 
 const Detail = () => {
@@ -56,33 +57,34 @@ const Detail = () => {
   return (
     <>
       <Navbar />
-      <div className="w-[80%] m-auto">
-        {/* <img src={returnImage} alt="returnIcon"/> */}
+      <div className="w-[80%] mx-[10%] m-auto mb-[30px] float-left sm:">
+
         <button
-          className="text-white underline text-[18px] float-left"
+          className="go-back-btn text-white underline text-[18px] float-left hover:scale-[1.015]"
           onClick={() => navigate(-1)}
         >
           Go Back
         </button>
+        {/* <img src={back} alt="returnIcon" /> */}
       </div>
 
-      <div className="detail-box flex bg-white w-[80%] m-auto rounded-[10px] my-[30px]">
-        <div className="detail-image-area w-[40%]">
-          <img
+      <div data-testid="detail-starship-box" className="detail-box flex flex-col bg-white w-[90%] m-auto rounded-[10px] mb-[30px] md:flex-row w-[80%] border-grey">
+        <div className="detail-image-area w-[100%] md:w-[40%]">
+          <img className="rounded-t-[10px] w-full md: rounded-none md: w-auto"
             onError={() => onErrorImage(state.data?.url.split("/")[5])}
             src={url}
             alt="logo"
           />
         </div>
-        <div className="detail-inform-area w-[60%] px-[50px] py-[30px]">
+        <div data-testid="detail-name" className="detail-inform-area w-full px-[10px]  py-[30px] md:w-[60%] px-[50px]">
           <span
-            data-testid="detail-name"
-            className="detail-inf-name text-[28px] font-bold border-b-[2px] border-[#b2afaf]"
+
+            className="detail-inf-name text-[22px] mb-[10px] font-bold border-b-[2px] border-[#b2afaf] md:text-[28px] mb-[0px]"
           >
             {state.data?.name}
           </span>
           <p className="p-[2px]">
-            <span className="font-bold pr-[8px]">Model:</span>
+            <span data-testid="detail-model" className="font-bold pr-[8px]">Model:</span>
             {state.data?.model}
           </p>
           <p className="p-[2px]">
@@ -93,7 +95,7 @@ const Detail = () => {
             <span className="font-bold pr-[8px]">Cargo Capaticy:</span>
             {state.data?.cargo_capacity}
           </p>
-          <p className="p-[2px]">
+          <p data-testid="detail-passenger" className="p-[2px]">
             <span className="font-bold pr-[8px]">Passenger:</span>
             {state.data?.passengers}
           </p>
@@ -112,18 +114,20 @@ const Detail = () => {
         </div>
       </div>
 
-      <div className="last-view w-[80%] m-auto my-[80px] py-[80px]">
-        <h2 className="text-[30px] text-white mb-[20px] text-start">
+      <div className="last-view w-[90%] m-auto my-[80px] pt-[0px] py-[80px] md:w-[80%] pt-[80px] ">
+        <h2
+          data-testid="last-view-title"
+          className="text-[30px] text-white mb-[20px] text-start"
+        >
           Last View Starships
         </h2>
-        <div className="last-view-boxs">
+        <div className="last-view-boxs flex overflow-x-auto whitespace-nowrap	overflow-y-hidden py-[15px] ">
           {recentPost.reverse().map((element, index) => {
             const idRecent = element.url.split("/")[5];
             const url = errorList.some((e) => e === idRecent)
               ? noImage
-              : `https://starwars-visualguide.com/assets/img/starships/${
-                  element.url.split("/")[5]
-                }.jpg`;
+              : `https://starwars-visualguide.com/assets/img/starships/${element.url.split("/")[5]
+              }.jpg`;
             return (
               <Link
                 to={`/detail/${element.url.split("/")[5]}`}
