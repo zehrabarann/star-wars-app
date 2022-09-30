@@ -9,7 +9,7 @@ const Cards = (props) => {
   const { allStarship, filteredData } = useContext(StarshipContext);
   const [errorList, setErrorList] = useState([]);
   const [data, setData] = useState([]);
-  console.log("filtered", filteredData);
+  // console.log("filtered", filteredData);
 
   useEffect(() => {
     if (!!allStarship.results || filteredData.length > 0) {
@@ -60,7 +60,7 @@ const Cards = (props) => {
   else {
     return (
       <div
-        data-testid={props.testid}
+        data-testid="loading-data"
         className="text-white flex justify-center items-center h-full"
       >
         <img src={loader} alt="loader" className="h-[60px] mb-[50px]" />
