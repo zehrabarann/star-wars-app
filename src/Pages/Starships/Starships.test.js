@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import App from "../../App";
 
@@ -34,4 +34,22 @@ describe("Starships", () => {
     expect(loading).toContainHTML(loadingSapShot);
   });
 
+
+  test("Search should be Decoded using the input field", async () => {
+    const route = "/starships";
+
+    render(
+      <MemoryRouter initialEntries={[route]}>
+        <App />
+      </MemoryRouter>
+    );
+
+    const input = screen.getByTestId("search-input");
+    expect(input).toHaveValue(""); //Firstly imput empty
+    fireEvent.change(input, { target: { value: "cr" } });
+    fireEvent.keyPress(input, { key: "Enter", code: 13 });
+    const starshipsName = screen.getByTestId("card-name");
+    expect(starshipsName).toBeInTheDocument();
+    expect(true).toBeTruthy();
+  });
 });
