@@ -2,21 +2,26 @@ import { useContext } from "react";
 import StarshipContext from "../../context/StarshipContext";
 import { ReactComponent as Search } from "../../assets/search.svg";
 import logo from "../../assets/logo.png";
+import { Link, Route, Switch, useLocation } from 'react-router-dom'
+
 
 const Navbar = () => {
   const { onSearch } = useContext(StarshipContext);
+  const location = useLocation()
+
+  console.log('pathname', location)
 
   return (
-    <div className="flex navbar w-[80%] m-auto align items-center">
-      <div className=" navbar-b flex items-center">
+    <div className="flex navbar w-[90%] m-auto lg:w-[80%] sm:m-auto align items-center">
+      <div className=" navbar-b flex items-center w-full mr-[20px] sm:mr-auto sm:m-auto">
         <div>
           <a href="/">
             <img src={logo} alt="logo" />
           </a>
         </div>
-        <div className="ml-8">
+        <div className="ml-4 sm:ml-8">
           <ul className="flex">
-            <li className="mr-[30px]">
+            <li className="mr-[15px] sm:mr-[30px]">
               <a href="/">Home</a>
             </li>
             <li>
@@ -28,8 +33,8 @@ const Navbar = () => {
         </div>
       </div>
 
-      {window.location.pathname === '/starships' &&
-        <div className="flex relative input-area bg-[#343434] rounded-[10px] opacity-[.7] px-[10px]">
+      {location.pathname === '/starships' &&
+        <div className=" flex relative input-area bg-[#343434] rounded-[10px] opacity-[.7] px-[10px]">
           <input
             data-testid="search-input"
             type="text"

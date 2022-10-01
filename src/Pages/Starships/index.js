@@ -22,7 +22,7 @@ const Starships = () => {
       <Navbar />
       <div
         data-testid="breadcrumb-test"
-        className="breadcrumb text-white w-[80%] m-[20px] m-auto sm:m-auto ml-[10px]"
+        className="breadcrumb text-white w-[90%] m-[20px] m-auto sm:m-auto md:w-[80%]"
       >
         <ul className="breadcrumb flex">
           <li className="pr-4">

@@ -15,7 +15,7 @@ const Card = ({ id, url, onErrorImage, name, model, hyperdrive_rating, cargo_cap
           onError={() => onErrorImage(id)}
           src={url}
           alt="logo"
-          className="my-4 text-center min-h-auto object-cover mt-[20px] md:min-h-[250px]"
+          className="my-4 text-center min-h-auto object-cover mt-[20px] sm:h-[200px] md:min-h-[250px] m-auto"
         />
         <p className="p-[2px]">
           <span className="font-bold pr-[8px]">Model:</span>

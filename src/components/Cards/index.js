@@ -27,7 +27,7 @@ const Cards = (props) => {
       <>
         <div
           data-testid={props.testid}
-          className="card-box grid grid-cols-1 gap-[1.5rem] w-[90%] m-auto my-[50px] sm:grid-cols-2 md:w-[80%] lg:grid-cols-3 gap-[2rem] xl:grid-cols-4"
+          className="card-box grid grid-cols-1 gap-[1.5rem] w-[90%] m-auto my-[30px] sm:grid-cols-2 lg:w-[80%] lg:grid-cols-3 gap-[2rem] xl:grid-cols-4"
         >
           {data.map((element, index) => {
             const id = element.url.split("/")[5];
