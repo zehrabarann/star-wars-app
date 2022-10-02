@@ -20,10 +20,10 @@ const Navbar = () => {
         <div className="ml-4 sm:ml-8">
           <ul className="flex">
             <li className="mr-[15px] sm:mr-[30px]">
-              <a href="/">Home</a>
+              <a href="/" className="hover:underline hover:font-semibold">Home</a>
             </li>
             <li>
-              <a data-testid="card-name" href="/starships">
+              <a data-testid="card-name" href="/starships" className="hover:underline hover:semibold">
                 Starships
               </a>
             </li>
