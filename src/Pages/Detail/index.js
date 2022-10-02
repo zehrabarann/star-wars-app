@@ -23,7 +23,7 @@ const Detail = () => {
     });
     return { data: foundedStarships || {} };
   }, [allStarship, location, id]);
-  console.log('element', recentPost)
+  // console.log('element', recentPost)
 
   const url = errorList.some((e) => e === id)
     ? noImage

@@ -6,7 +6,7 @@ const snapShot = '<ul class="breadcrumb flex"><li class="pr-4"><a href="/">Home<
 jest.useFakeTimers("legacy");
 
 describe("Starships", () => {
-  test("Starhips breadcrumb", async () => {
+  test("Starhips breadcrumb", () => {
     render(
       <MemoryRouter initialEntries={["/starships?q=de"]}>
         <App />
@@ -20,7 +20,7 @@ describe("Starships", () => {
     expect(breadcrumb).toContainHTML(snapShot);
   });
 
-  test("Starhips loading", async () => {
+  test("Starhips loading", () => {
     const loadingSapShot = '<img alt="loader" class="h-[60px] mb-[50px]" src="loader.gif" /'
     render(
       <MemoryRouter initialEntries={["/starships?q=de"]}>
@@ -35,7 +35,7 @@ describe("Starships", () => {
   });
 
 
-  test("Search should be Decoded using the input field", async () => {
+  test("Search should be Decoded using the input field", () => {
     const route = "/starships";
 
     render(

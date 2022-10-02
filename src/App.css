@@ -232,6 +232,13 @@ input:focus-visible {
   .input-area {
     width: 100%;
   }
+
+  .image-text-box {
+    height: 555px;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+  }
 }
 
 @media only screen and (min-width: 480px) and (max-width: 768px) {

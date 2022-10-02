@@ -2,14 +2,12 @@ import { useContext } from "react";
 import StarshipContext from "../../context/StarshipContext";
 import { ReactComponent as Search } from "../../assets/search.svg";
 import logo from "../../assets/logo.png";
-import { Link, Route, Switch, useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 
 
 const Navbar = () => {
   const { onSearch } = useContext(StarshipContext);
   const location = useLocation()
-
-  console.log('pathname', location)
 
   return (
     <div className="flex navbar w-[90%] m-auto lg:w-[80%] sm:m-auto align items-center">
