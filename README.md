@@ -1,3 +1,17 @@
+# Starwars App
+Starships can be listed in the project. You can search this list and get detailed information about the starships on the detail page. The detail page can list the last viewed starships
+
+## Project Video
+
+
+
+https://user-images.githubusercontent.com/67759560/193457513-de0c6fa7-26ba-45fb-aaf8-bf830dc67f52.mov
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
